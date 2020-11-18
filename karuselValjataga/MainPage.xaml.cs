@@ -4,14 +4,28 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace karuselValjataga
 {
     public partial class MainPage : CarouselPage
     {
+        Button btn;
+        Uri ur;
         public MainPage()
         {
+            btn = new Button { Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
+            Button btn1 = new Button { 
+                Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
+            Button btn2 = new Button { 
+                Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
+            Button btn3 = new Button { 
+                Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
+
+            btn.Clicked += Btn_Clicked;
+            btn1.Clicked += Btn1_Clicked;
+            btn2.Clicked += Btn2_Clicked; btn3.Clicked += Btn3_Clicked;
             InitializeComponent();
             var start = new ContentPage
             {
@@ -28,13 +42,7 @@ namespace karuselValjataga
                             HorizontalTextAlignment = TextAlignment.Center,
                             BackgroundColor=Color.DarkGray
                         },
-                        new Image {Source = "start.webp"},
-                        new ImageButton
-                        {
-                            Source = "XamarinLogo.png",
-                            HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.CenterAndExpand
-                        }
+                        new Image {Source = "start.webp"}
                     }
                 }
             };
@@ -57,10 +65,12 @@ namespace karuselValjataga
                         new Image {Source = "holerik.png",
                         HeightRequest = 250,
                         WidthRequest = 250},
+                        btn,
                         new Label
                         {
                             Padding = 20,
-                            Text = "Холерик — это эмоционально вспыльчивый и чрезвычайно активный тип темперамента, склонный к лидерству и доминированию. Само слово «холерик» древнегреческого происхождения. По представлениям Гиппократа, который согласно преобладающему «жизненному соку» выделил четыре типа темперамента, у холериков доминирует «желтая желчь». Языком оригинала она именуется «холе». Отсюда и пошло название."
+                            Text = "Холерик — это эмоционально вспыльчивый и чрезвычайно активный тип темперамента, склонный к лидерству и доминированию. Само слово «холерик» древнегреческого происхождения. По представлениям Гиппократа, который согласно преобладающему «жизненному соку» выделил четыре типа темперамента, у холериков доминирует «желтая желчь». Языком оригинала она именуется «холе». Отсюда и пошло название.",
+                            FontSize = 12
                         }
                     }
                 }
@@ -84,6 +94,7 @@ namespace karuselValjataga
                         new Image {Source = "sangvinik.png",
                         HeightRequest = 250,
                         WidthRequest = 250},
+                        btn1,
                         new Label
                         {
                             Padding = 20,
@@ -110,6 +121,7 @@ namespace karuselValjataga
                         new Image {Source = "flegmatik.png",
                         HeightRequest = 250,
                         WidthRequest = 250},
+                        btn2,
                         new Label
                         {
                             Padding = 20,
@@ -137,6 +149,7 @@ namespace karuselValjataga
                         new Image {Source = "melanholik.jpg",
                         HeightRequest = 250,
                         WidthRequest = 250},
+                        btn3,
 
                         new Label
                         {
@@ -151,6 +164,30 @@ namespace karuselValjataga
             Children.Add(sangvinik);
             Children.Add(flegmatik);
             Children.Add(melanholik);
+        }
+
+        private async void Btn3_Clicked(object sender, EventArgs e)
+        {
+            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
+            await Browser.OpenAsync(ur);
+        }
+
+        private async void Btn2_Clicked(object sender, EventArgs e)
+        {
+            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
+            await Browser.OpenAsync(ur);
+        }
+
+        private async void Btn1_Clicked(object sender, EventArgs e)
+        {
+            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
+            await Browser.OpenAsync(ur);
+        }
+
+        private async void Btn_Clicked(object sender, EventArgs e)
+        {
+            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
+            await Browser.OpenAsync(ur);
         }
     }
 }
