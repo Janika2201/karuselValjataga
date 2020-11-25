@@ -11,21 +11,67 @@ namespace karuselValjataga
 {
     public partial class MainPage : CarouselPage
     {
-        Button btn;
+        Button btn1, btn2, btn3, btn4, btn5;
+        Label holeriklbl, sangviniklbl, flegmatiklbl, melanholiklbl;
         Uri ur;
         public MainPage()
         {
-            btn = new Button { Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
-            Button btn1 = new Button { 
-                Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
-            Button btn2 = new Button { 
-                Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
-            Button btn3 = new Button { 
-                Text = "Пройти тест", BackgroundColor = Color.Yellow, HorizontalOptions = LayoutOptions.Center };
+            btn1 = new Button
+            {
+                ImageSource = "holerik.jpg"
+            };
+            btn1.Clicked += Btn1_Clicked1;
+            holeriklbl = new Label
+            {
+                IsVisible = false,
+                Padding = 20,
+                Text = "быстрый, страстный, порывистый, однако совершенно неуравновешенный, с резко меняющимся настроением с эмоциональными вспышками, быстро истощаемый. У него нет равновесия нервных процессов, это его резко отличает от сангвиника. ",
+                FontSize = 12
+            };
+            btn2 = new Button
+            {
+                ImageSource = "sangvinik.png"
+            };
+            btn2.Clicked += Btn2_Clicked; ;
+            sangviniklbl = new Label
+            {
+                IsVisible = false,
+                Padding = 20,
+                Text = "живой, горячий, подвижный человек, с частой сменой настроения, впечатлений, с быстрой реакцией на все события, происходящие вокруг него, довольно легко примиряющийся со своими неудачами и неприятностями.  "
+            };
+            btn3 = new Button
+            {
+                ImageSource = "flegmatik.png"
+            };
+            btn3.Clicked += Btn3_Clicked;
+            flegmatiklbl = new Label
+            {
+                IsVisible = false,
+                Padding = 20,
+                Text = "неспешен, невозмутим, имеет устойчивые стремления и настроение, внешне скуп на проявление эмоций и чувств. Он проявляет упорство и настойчивость в работе, оставаясь спокойным и уравновешенным. В работе он производителен, компенсируя свою неспешность прилежанием."
+            };
+            btn4 = new Button
+            {
+                ImageSource = "melanholik.png"
+            };
+            btn4.Clicked += Btn4_Clicked;
+            melanholiklbl = new Label
+            {
+                IsVisible = false,
+                Padding = 20,
+                Text = "человек легко ранимый, склонный к постоянному переживанию различных событий, он мало реагирует на внешние факторы. Свои астенические переживания он не может сдерживать усилием воли, он чересчур впечатлителен, легко эмоционально раним."
+            };
+            btn5 = new Button
+            {
+                Text = "Тест на  Темпераменты"
+            };
+            btn5.Clicked += Btn5_Clicked;
 
-            btn.Clicked += Btn_Clicked;
-            btn1.Clicked += Btn1_Clicked;
-            btn2.Clicked += Btn2_Clicked; btn3.Clicked += Btn3_Clicked;
+
+
+
+
+
             InitializeComponent();
             var start = new ContentPage
             {
@@ -42,7 +88,9 @@ namespace karuselValjataga
                             HorizontalTextAlignment = TextAlignment.Center,
                             BackgroundColor=Color.DarkGray
                         },
-                        new Image {Source = "start.webp"}
+                        new Image {Source = "start.webp"},
+                        btn5
+                        
                     }
                 }
             };
@@ -54,6 +102,7 @@ namespace karuselValjataga
                     {
                         new Label
                         {
+                            
                             Text = "Холерик",
                             TextColor = Color.White,
                             FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
@@ -62,16 +111,9 @@ namespace karuselValjataga
                             Padding = 20
                             
                         },
-                        new Image {Source = "holerik.png",
-                        HeightRequest = 250,
-                        WidthRequest = 250},
-                        btn,
-                        new Label
-                        {
-                            Padding = 20,
-                            Text = "Холерик — это эмоционально вспыльчивый и чрезвычайно активный тип темперамента, склонный к лидерству и доминированию. Само слово «холерик» древнегреческого происхождения. По представлениям Гиппократа, который согласно преобладающему «жизненному соку» выделил четыре типа темперамента, у холериков доминирует «желтая желчь». Языком оригинала она именуется «холе». Отсюда и пошло название.",
-                            FontSize = 12
-                        }
+                        btn1,
+                        holeriklbl
+
                     }
                 }
             };
@@ -91,15 +133,10 @@ namespace karuselValjataga
                             Padding = 20
                             
                         },
-                        new Image {Source = "sangvinik.png",
-                        HeightRequest = 250,
-                        WidthRequest = 250},
-                        btn1,
-                        new Label
-                        {
-                            Padding = 20,
-                            Text = "К сангвиникам относятся жизнерадостные люди, которые легко адаптируются в любой компании и в результате оказываются в центре внимания. Они нравятся многим людям и поэтому им прощают промахи или неудачные шутки. Представители этого типа темперамента любят похвастаться. О своих достижениях они молчать не будут, а тут же расскажут о них своим друзьям и близким. "
-                        }
+                        btn2,
+                        sangviniklbl
+                        
+                        
                     }
                 }
             };
@@ -112,21 +149,15 @@ namespace karuselValjataga
                         new Label
                         {
                             Text = "Флегматик",
-                            TextColor = Color.White,
-                            FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
+                            FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                             HorizontalTextAlignment = TextAlignment.Center,
+                            TextColor = Color.Black,
                             BackgroundColor=Color.Black,
                             Padding = 20
                         },
-                        new Image {Source = "flegmatik.png",
-                        HeightRequest = 250,
-                        WidthRequest = 250},
-                        btn2,
-                        new Label
-                        {
-                            Padding = 20,
-                            Text = "Флегматики - это  сдержанные люди,  не склонные к риску и  невозмутимы в любой ситуации. Прежде чем принять решение, они обдумывают всё до мелочей. Флегматик всегда сдержанно выражает свои эмоции. Они стараются избежать конфликта, поэтому могут уступить в споре. Представители этого типа, видят жизнь в реальных красках. Именно поэтому  их цели в большинстве случаев достигаются. "
-                        }
+                        btn3,
+                        flegmatiklbl
+                       
                     }
                 }
             };
@@ -139,26 +170,19 @@ namespace karuselValjataga
                         new Label
                         {
                             Text = "Меланхолик",
-                            TextColor = Color.White,
-                            FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
+                            FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                             HorizontalTextAlignment = TextAlignment.Center,
+                            TextColor = Color.Black,
                             BackgroundColor=Color.Black,
                             Padding = 20
-                            
                         },
-                        new Image {Source = "melanholik.jpg",
-                        HeightRequest = 250,
-                        WidthRequest = 250},
-                        btn3,
+                        btn4,
+                        melanholiklbl
 
-                        new Label
-                        {
-                            Padding = 20,
-                            Text = "Меланхолик - это пассивный тип темперамента, которому свойственны глубокие переживания на любые события, высокая чувствительность, обидчивость и эмоциональность. "
-                        },
                     }
                 }
             };
+
             Children.Add(start);
             Children.Add(holerik);
             Children.Add(sangvinik);
@@ -166,28 +190,30 @@ namespace karuselValjataga
             Children.Add(melanholik);
         }
 
-        private async void Btn3_Clicked(object sender, EventArgs e)
+        private async void Btn5_Clicked(object sender, EventArgs e)
         {
             ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
             await Browser.OpenAsync(ur);
         }
 
-        private async void Btn2_Clicked(object sender, EventArgs e)
+        private void Btn4_Clicked(object sender, EventArgs e)
         {
-            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
-            await Browser.OpenAsync(ur);
+           melanholiklbl.IsVisible = true;
         }
 
-        private async void Btn1_Clicked(object sender, EventArgs e)
+        private void Btn2_Clicked(object sender, EventArgs e)
         {
-            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
-            await Browser.OpenAsync(ur);
+            sangviniklbl.IsVisible = true;
         }
 
-        private async void Btn_Clicked(object sender, EventArgs e)
+        private void Btn3_Clicked(object sender, EventArgs e)
         {
-            ur = new Uri("https://testometrika.com/personality-and-temper/the-formula-of-temperament-a-belov/");
-            await Browser.OpenAsync(ur);
+            flegmatiklbl.IsVisible = true;//видимость 
+        }
+
+        private void Btn1_Clicked1(object sender, EventArgs e)
+        {
+            holeriklbl.IsVisible = true;
         }
     }
 }
