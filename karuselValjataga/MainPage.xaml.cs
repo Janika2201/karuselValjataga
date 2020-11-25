@@ -94,7 +94,7 @@ namespace karuselValjataga
                     }
                 }
             };
-            var holerik = new ContentPage
+            var holerik = new ContentPage// название - холерик
             {
                 Content = new StackLayout
                 {
@@ -149,9 +149,9 @@ namespace karuselValjataga
                         new Label
                         {
                             Text = "Флегматик",
+                            TextColor = Color.White,
                             FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                             HorizontalTextAlignment = TextAlignment.Center,
-                            TextColor = Color.Black,
                             BackgroundColor=Color.Black,
                             Padding = 20
                         },
@@ -170,9 +170,9 @@ namespace karuselValjataga
                         new Label
                         {
                             Text = "Меланхолик",
+                            TextColor = Color.White,
                             FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                             HorizontalTextAlignment = TextAlignment.Center,
-                            TextColor = Color.Black,
                             BackgroundColor=Color.Black,
                             Padding = 20
                         },
